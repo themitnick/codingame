@@ -1,0 +1,25 @@
+Dans cet exercice, on vous demande de créer un composant nommé AccountComponent ayant pour sélecteur account-component.
+
+Le composant représente un page d'administration d'une application financière depuis laquelle l'utilisateur peut :
+1. Créer des comptes (de dépôt) avec n'importe quel montant existant.
+2. Déposer de l'argent sur n'importe quel compte existant.
+
+Ce composant doit utiliser le service AccountingService pour implémenter ces 2 opérations. Une solution qui modifierait ou n'utiliserait pas le service ne sera pas considérée comme correcte.
+
+Pour chaque opération, vous devez:
+Créez des inputs et des boutons pour permettre l'intéraction avec l'utilisateur. Définir un <div> avec id="message" pour informer l'utilisateur au deux opérations. Example HTML d'un message :
+<div id="message">Example message</div>
+
+1. Création de comptes :
+Vous devez créer:
+un champ <input> avec id="createAccountInput", un bouton avec id="createAccountButton".
+
+Vous ne devez pas implémenter de validation du champ. Le composant doit créer un compte avec le nom donné en entrée quand l'utilisateur clique sur le bouton. Après une création réussie, le message "Successfully added account" doit s'afficher.
+
+2. Dépot sur un compte:
+Vous devez créer:
+un <input> avec id="topupAccountInput", un autre <input> avec id=id="topupAmountInput" un bouton avec id="topupAccountButton".
+
+Si l'utilisateur fournit un compte et une somme valide, le montant doit être ajouté au compte après un clic sur le bouton. Si l'opération réussit, le message "Current balance: x" doit s'afficher (x est le montant disponible sur le compte après l'opération).
+
+Quand un nombre négatif (ou 0) est saisi par l'utilisateur, vous ne devez pas appeler le service et vous devez afficher le message "INVALID_INPUT".

@@ -1,0 +1,13 @@
+<div class="display-container">
+  <voter-component
+    [question]="question"
+    [yesAnswer]="yesAnswer"
+    [noAnswer]="noAnswer"
+    (output)="onVote($event)"
+  >
+  </voter-component>
+
+  <div id="lastVote">
+    {{ lastVote }}
+  </div>
+</div>

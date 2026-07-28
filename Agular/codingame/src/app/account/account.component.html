@@ -1,0 +1,41 @@
+<div class="account-container">
+  <h2>Account Administration</h2>
+
+  <div class="section">
+    <h3>Create Account</h3>
+    <div class="form-group">
+      <input 
+        id="createAccountInput" 
+        type="text" 
+        [(ngModel)]="createAccountName"
+        placeholder="Enter account name"
+      />
+      <button id="createAccountButton" (click)="createAccount()">
+        Create Account
+      </button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Top Up Account</h3>
+    <div class="form-group">
+      <input 
+        id="topupAccountInput" 
+        type="text" 
+        [(ngModel)]="topupAccountName"
+        placeholder="Enter account name"
+      />
+      <input 
+        id="topupAmountInput" 
+        type="number" 
+        [(ngModel)]="topupAmount"
+        placeholder="Enter amount"
+      />
+      <button id="topupAccountButton" (click)="topupAccount()">
+        Top Up
+      </button>
+    </div>
+  </div>
+
+  <div id="message" *ngIf="message">{{ message }}</div>
+</div>

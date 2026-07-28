@@ -1,0 +1,44 @@
+.voter-container {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.yes-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.yes-button:hover {
+  background-color: #45a049;
+}
+
+.no-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.no-button:hover {
+  background-color: #da190b;
+}

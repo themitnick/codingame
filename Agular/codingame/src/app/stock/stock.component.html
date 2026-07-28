@@ -1,0 +1,42 @@
+<div class="stock-container">
+  <h2>Stock Analysis - Top 3 by Average Price</h2>
+
+  <div class="section">
+    <h3>Add Stock</h3>
+    <div class="form-group">
+      <input 
+        type="text" 
+        [(ngModel)]="stockInput"
+        placeholder="Stock name (e.g., GOOG)"
+      />
+      <input 
+        type="text" 
+        [(ngModel)]="priceInput"
+        placeholder="Prices (e.g., 12.5, 13.2, 11.8)"
+      />
+      <button (click)="addStock()">Add Stock</button>
+    </div>
+  </div>
+
+  <div class="section" *ngIf="stocks.length > 0">
+    <h3>Current Stocks</h3>
+    <div class="stocks-list">
+      <div *ngFor="let stock of stocks; let i = index" class="stock-item">
+        <strong>{{ stock }}</strong>: {{ prices[i].join(', ') }}
+      </div>
+    </div>
+    <div class="action-buttons">
+      <button (click)="calculateTopStocks()" class="calculate-btn">Calculate Top 3</button>
+      <button (click)="reset()" class="reset-btn">Reset</button>
+    </div>
+  </div>
+
+  <div class="section result" *ngIf="result.length > 0">
+    <h3>Top 3 Stocks by Average Price</h3>
+    <div class="result-list">
+      <div *ngFor="let stock of result; let i = index" class="result-item">
+        {{ i + 1 }}. {{ stock }}
+      </div>
+    </div>
+  </div>
+</div>

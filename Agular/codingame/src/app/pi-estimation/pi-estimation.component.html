@@ -1,0 +1,64 @@
+<div class="pi-container">
+  <h2>Estimation de π (Pi) - Méthode Monte Carlo</h2>
+
+  <div class="explanation">
+    <p>Cette méthode utilise des points aléatoires dans un carré pour estimer π.</p>
+    <p>Si x² + y² ≤ 1, le point est à l'intérieur du quart de disque.</p>
+    <p>La probabilité = π/4, donc π ≈ 4 × (points à l'intérieur / total des points)</p>
+  </div>
+
+  <div class="section">
+    <h3>Paramètres</h3>
+    <div class="form-group">
+      <label for="pointsInput">Nombre de points:</label>
+      <input 
+        id="pointsInput"
+        type="number" 
+        [(ngModel)]="numberOfPoints"
+        min="10"
+        max="1000000"
+        placeholder="Nombre de points aléatoires"
+      />
+      <button (click)="calculatePi()" class="calculate-btn">Calculer π</button>
+      <button (click)="reset()" class="reset-btn">Réinitialiser</button>
+    </div>
+  </div>
+
+  <div class="section result" *ngIf="estimatedPi > 0">
+    <h3>Résultat</h3>
+    <div class="pi-result">
+      <div class="pi-value">
+        π ≈ <span class="value">{{ estimatedPi }}</span>
+      </div>
+      <div class="pi-info">
+        <p>Valeur réelle de π: 3.14159265359...</p>
+        <p>Erreur: {{ (Math.abs(estimatedPi - Math.PI) * 100 / Math.PI).toFixed(2) }}%</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section visualization" *ngIf="points.length > 0">
+    <h3>Visualisation ({{ points.length }} premiers points)</h3>
+    <div class="canvas-container">
+      <svg viewBox="0 0 300 300" class="visualization-svg">
+        <!-- Quart de cercle -->
+        <path d="M 0 300 L 0 0 Q 0 0 300 0 L 300 0 Q 150 150 0 300 Z" 
+              fill="#ffffcc" stroke="#999" stroke-width="2"/>
+        <path d="M 0 300 A 300 300 0 0 1 300 0" 
+              fill="none" stroke="#007bff" stroke-width="3"/>
+        
+        <!-- Points -->
+        <circle *ngFor="let point of points"
+                [attr.cx]="point.x * 300"
+                [attr.cy]="(1 - point.y) * 300"
+                r="2"
+                [attr.fill]="point.inside ? '#28a745' : '#dc3545'"
+        />
+      </svg>
+      <div class="legend">
+        <span class="legend-item"><span class="dot inside"></span> À l'intérieur (comptés)</span>
+        <span class="legend-item"><span class="dot outside"></span> À l'extérieur</span>
+      </div>
+    </div>
+  </div>
+</div>

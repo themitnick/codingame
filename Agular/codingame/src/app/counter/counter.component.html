@@ -1,0 +1,15 @@
+<div class="counter-container">
+  <div class="interval-control">
+    <label for="intervalInput">Interval (ms):</label>
+    <input 
+      id="intervalInput" 
+      type="number" 
+      [(ngModel)]="intervalValue" 
+      min="100"
+      placeholder="Enter interval in ms"
+    />
+    <button id="intervalSetButton" (click)="setInterval()">
+      Set Interval
+    </button>
+  </div>
+</div>
