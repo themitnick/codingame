@@ -1,8 +1,8 @@
+import java.util.Arrays;
+
 public class Echo {
-    public static void main(String[] args) {
-        for (String arg : args) {
-            System.out.println(arg);
-        }
+    static void main(String[] args) {
+        Arrays.stream(args).forEach(System.out::println);
 
     }
 }

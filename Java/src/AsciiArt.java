@@ -3,8 +3,21 @@ import java.util.stream.IntStream;
 public class AsciiArt {
 
     public static void main(String[] args) {
-        char scan = scanChar("C");
+        char scan = scanChar(printChar('O'));
         System.out.println(scan);
+
+        boolean allOk = true;
+        for (char c = 'A'; c <= 'Z'; c++) {
+            String art = printChar(c);
+            char r1 = scanChar(art);
+            char r2 = scanChar2(art);
+            if (r1 != c || r2 != c) {
+                allOk = false;
+                System.out.println("ERREUR pour " + c + " : scanChar=" + r1 + ", scanChar2=" + r2);
+            }
+        }
+        System.out.println("Coherence A-Z : " + (allOk ? "OK" : "ECHEC"));
+        System.out.println("Art inconnu -> " + scanChar("???"));
     }
 
     public static char scanChar(String s) {
@@ -13,6 +26,15 @@ public class AsciiArt {
             .filter(c -> s.equals(AsciiArt.printChar(c)))
             .findFirst()
             .orElse('?');
+    }
+
+    public static char scanChar2(String s) {
+        for (char c = 'A'; c <= 'Z'; c++) {
+            if (s.equals(printChar(c))) {
+                return c;
+            }
+        }
+        return '?';
     }
 
     public static String printChar(char c) {
@@ -94,7 +116,7 @@ public class AsciiArt {
             case 'M':
                 result.append("# #\n");
                 result.append("###\n");
-                result.append("# #\n");
+                result.append("###\n");
                 result.append("# #\n");
                 break;
             case 'N':

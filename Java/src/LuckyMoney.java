@@ -1,5 +1,12 @@
 public class LuckyMoney {
 
+    public static void main(String[] args) {
+        int money = 20; // Exemple de budget total
+        int giftees = 5; // Exemple de nombre de petits-enfants
+        int maxLuckyGifts = luckyMoney(money, giftees);
+        System.out.println("Nombre maximum de dons chanceux possibles : " + maxLuckyGifts);
+    }
+
     /**
      * Calcule le nombre maximum de dons "chanceux" (4 ou 8) possibles
      * 

@@ -22,7 +22,22 @@ class A {
             }
         }
     }
+
+    void a2(Service s, Connection c) throws Exception {
+        try {
+            s.setConnection(c);
+            s.execute();
+            c.commit();
+        }catch (Exception e) {
+            c.rollback();
+            throw e;
+        }finally {
+            c.close();
+        }
+    }
 }
+
+
 
 interface Service {
     void execute() throws Exception;

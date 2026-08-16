@@ -4,7 +4,7 @@ public class FilterWords {
     public static void main(String[] args) {
 
         String[] wordsValue = {"the", "dog", "got", "a", "bone", "manière", "end"};
-        String letters = "ad";
+        String letters = "i";
         String[] result = filterWords(wordsValue, letters);
         System.out.println(Arrays.toString(result));
     }
